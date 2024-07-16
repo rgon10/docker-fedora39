@@ -5,9 +5,9 @@ on:
   pull_request:
   push:
     branches:
-      - master
-  schedule:
-    - cron: "10 1 * * 0"
+      - main
+  # schedule:
+  #   - cron: "10 1 * * 0"
 
 jobs:
   # Test the image builds and works correctly.
@@ -35,7 +35,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     needs: test
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v2
